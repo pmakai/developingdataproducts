@@ -1,0 +1,38 @@
+---
+title: "Leaflet"
+author: "Peter Makai"
+date: "3 augustus 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Leafet map
+
+
+```{r}
+library(leaflet)
+map <- leaflet() %>% addTiles()
+
+```
+
+## Including van Gogh Museaum
+
+
+
+```{r, echo=TRUE}
+
+vangoghicon = makeIcon(iconUrl="http://cdn.onlinewebfonts.com/svg/download_67252.png",
+iconWidth =  31, iconHeight =  31)
+
+vangoghpop<-c("<a href='https://www.vangoghmuseum.nl'>Van Gogh Museum</a>")
+
+map %>%
+   addTiles() %>%
+   addMarkers(icon=vangoghicon, lat=52.3584159, lng=4.8810756, popup = vangoghpop)
+
+```
+
+
